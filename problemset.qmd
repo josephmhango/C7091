@@ -29,11 +29,11 @@ df_labels <- data.frame(
   stringsAsFactors = FALSE
 )
 
-# MISTAKE: the key is wrong here ("car" instead of "carname")
+
 merged <- merge(df_cars, df_labels, by.x = "row.names", by.y = "car")
 
 plot(merged$hp, merged$mpg,
-     col = merged$cyl_groups,   # MISTAKE: wrong column name
+     col = merged$cyl_groups, 
      pch = 19,
      xlab = "Horsepower",
      ylab = "Miles per gallon")
