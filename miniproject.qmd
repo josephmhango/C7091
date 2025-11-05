@@ -13,7 +13,7 @@ execute:
 
 We developed a new **adaptive blue-filter gaming eyewear** intended to reduce eye strain during prolonged gameplay. Unlike standard gaming glasses (which mainly apply a fixed tint and blue-light reduction), our device uses a micro-adaptive filter that responds to on-screen chroma and brightness patterns. The idea is that after an initial long gaming session, the user’s visual system may show a short-term adaptation, so that in a subsequent session the same device offers **equal or better eye-strain protection** even without re-tuning.
 
-To evaluate this, we ran a controlled experiment across **two gaming sessions** (these correspond to the two years in the original dataset). At the first session, players were randomly assigned **once** to one of three eye-protection conditions:
+To evaluate this, we ran a controlled experiment across **two gaming sessions**. At the first session, players were randomly assigned **once** to one of three eye-protection conditions:
 
 1. **adaptive_blue_filter** – our new device (applied in the first session only in order to test whether the benefits persist),
 2. **standard_gaming_glasses** – a commonly available fixed-tint gaming eyewear,

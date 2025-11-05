@@ -189,10 +189,7 @@ Instead of `pwr.t.test()`, use `pwr.anova.test()` from the `{pwr}` package.
    * sig.level = 0.05
 4. In 2–3 sentences, explain how `f` in ANOVA differs conceptually from Cohen’s `d` in a t-test.
 
-```r
-library(pwr)
-# your pwr.anova.test(...) here
-```
+
 
 ---
 
@@ -211,6 +208,4 @@ Construct a **three-level unnamed list** like this:
 3. Store it as a scalar.
 4. In 3–4 sentences, explain the difference between `[` and `[[` for lists and why only one of them gives you the actual element.
 
-```r
-# your list construction and extraction here
-```
+
