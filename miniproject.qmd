@@ -1,0 +1,58 @@
+---
+title: "Mini -  project"
+author: "Joseph Mhango"
+format:
+  html:
+    toc: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+# Study Synopsis: Effects of Eye-Protection Devices on Eye Strain During Prolonged Gaming
+
+We developed a new **adaptive blue-filter gaming eyewear** intended to reduce eye strain during prolonged gameplay. Unlike standard gaming glasses (which mainly apply a fixed tint and blue-light reduction), our device uses a micro-adaptive filter that responds to on-screen chroma and brightness patterns. The idea is that after an initial long gaming session, the user’s visual system may show a short-term adaptation, so that in a subsequent session the same device offers **equal or better eye-strain protection** even without re-tuning.
+
+To evaluate this, we ran a controlled experiment across **two gaming sessions** (these correspond to the two years in the original dataset). At the first session, players were randomly assigned **once** to one of three eye-protection conditions:
+
+1. **adaptive_blue_filter** – our new device (applied in the first session only in order to test whether the benefits persist),
+2. **standard_gaming_glasses** – a commonly available fixed-tint gaming eyewear,
+3. **no_protection** – control condition.
+
+The **same players stayed in the same condition** in the second session, so the treatment was randomised once and then held constant. After **five continuous hours of gaming**, we recorded an **eye strain score** for each player. Lower scores indicate less strain and a more comfortable visual experience.
+
+We set out to test three expectations:
+
+1. **Device effect within session**: in any given session, the adaptive blue filter will result in **lower eye strain** than both the standard glasses and no-protection.
+2. **Persistence/carry-over**: players on the adaptive device will show **equal or lower** eye strain in the second session compared with the first, suggesting that the visual system and/or display–filter interaction maintains some benefit.
+3. **Baseline benefit of standard glasses**: the standard gaming glasses will still be **better than having no protection**, because any degree of blue filtering or tinting should reduce discomfort over a 5-hour session.
+
+The tidy dataset for this study therefore contains the following variables:
+
+* `session` – the measurement occasion (session 1 and session 2),
+* `gamer_id` – an identifier for the player, who appears in both sessions,
+* `device` – one of `adaptive_blue_filter`, `standard_gaming_glasses`, or `no_protection`,
+* `eye_strain_score` – a numerical score of eye strain after 5 hours, where lower values are preferred.
+
+Because players were measured twice under the same condition, the analysis should account for **repeated measurement on the same individual** (e.g. by including `gamer_id` as a blocking factor) while testing for **device**, **session**, and their **interaction** to see whether the adaptive device maintains or improves its advantage over time.
+
+## Student Task
+
+Using the attached tidy eye-strain dataset, complete the following:
+
+1. **Formulate hypotheses**
+
+   * For each of the three research expectations stated above, write a clear null hypothesis (H0) and an alternate hypothesis (H1) using the variables `device`, `session`, and `eye_strain_score`.
+2. **Fit an ANOVA model in R**
+
+   * Read the data into R.
+   * Fit a statistical model
+3. **Report your results**
+
+   * Present the ANOVA table.
+   * State clearly, in words, whether each of the three alternate hypotheses is supported by the data
+4. **Document in Quarto**
+
+   * Put your code and commentary in a Quarto (`.qmd`) document so that another student could re-run the analysis.
+   
+Note: the dataset is available [Here](data.csv)

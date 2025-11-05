@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>C7091 • Professional skills for data science — Content</title>
+  <meta name="description" content="Landing page for C7091 content." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b1020;--card:#131933;--muted:#96a0c8;--text:#e8ecff;--brand:#7aa2ff;--hover:#202a55}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#0b1020,#0b1020 40%,#0f1630);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 64px}
+    header{display:block;margin-bottom:16px}
+    .brand{display:flex;align-items:flex-start;gap:12px}
+    .logo{height:48px;width:auto;flex:0 0 auto}
+    .badge{font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);border:1px solid #243069;border-radius:999px;padding:6px 10px}
+    h1{font-size:clamp(22px,3vw,28px);margin:0;font-weight:700}
+    .tagline{margin:.35rem 0 0;color:var(--muted);font-size:14px}
+    .tagline a{color:var(--brand);text-decoration:underline}
+    .controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:var(--card);border:1px solid #1a2247;border-radius:12px;padding:12px 12px;margin:12px 0 24px}
+    .input,.select{background:var(--card);border:1px solid #212954;color:var(--text);border-radius:12px;padding:12px 14px;outline:none}
+    .input{min-width:260px;flex:1 1 360px}
+    .select{min-width:160px;flex:0 0 200px}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{background:var(--card);border:1px solid #1a2247;border-radius:16px;padding:18px 16px;transition:transform .12s ease,border-color .12s ease,background .12s ease;cursor:pointer}
+    .card:hover{transform:translateY(-3px);border-color:#2a3875;background:var(--hover)}
+    .thumb{width:100%;aspect-ratio:16/9;border-radius:12px;background:linear-gradient(135deg,#1a2247,#2a3875 60%,#3a4a95);border:1px solid #1a2247;object-fit:contain;object-position:center;display:block;margin-bottom:10px}
+    .card h3{margin:4px 0 6px;font-size:18px}
+    .card-title{display:inline-block;padding:4px 10px;border-radius:999px;background:#0f1630;border:1px solid #283268;color:#b9c6ff;text-decoration:none;transition:color .12s ease,border-color .12s ease}
+    .card-title:hover{color:#ff8c00;border-color:#ff8c00}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:13px}
+    .tag{padding:2px 8px;border-radius:999px;background:#0f1630;border:1px solid #283268;color:#b9c6ff}
+    .lead-pill{padding:2px 8px;border-radius:999px;background:#0f1630;border:1px solid #283268;color:#b9c6ff}
+    .slide-list{margin:8px 0 0 0;padding:0 0 0 16px}
+    .slide-list li{margin:2px 0}
+    .slide-link{display:inline-block;padding:4px 10px;border-radius:999px;background:#0f1630;border:1px solid #283268;color:#b9c6ff;text-decoration:none;transition:color .12s ease,border-color .12s ease}
+    .slide-link:hover{color:#ff8c00;border-color:#ff8c00}
+    .footer{margin-top:36px;color:var(--muted);font-size:13px}
+    .empty{opacity:.8;border:1px dashed #2b356c;padding:28px;border-radius:16px;text-align:center}
+    /* Header three-column layout */
+    .site-header{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;margin-bottom:16px}
+    .header-center{text-align:center}
+    .assessment-box{border:2px solid #ff8c00;border-radius:16px;padding:16px;margin:16px 0;background:rgba(255,140,0,0.08)}
+    .assessment-box .card{ text-align:center }
+    .assessment-box .slide-list{ padding:0; list-style:none; text-align:center }
+    .assessment-box .slide-list li{ margin:6px 0 }
+    .assessment-box .meta{ justify-content:center }
+    .assessment-box .card:hover{ box-shadow:0 0 0 3px rgba(255,140,0,0.35), 0 10px 20px rgba(0,0,0,0.25); border-color:#ff8c00 }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <div class="header-left">
+        <img src="HAU-logo.svg" alt="Harper Adams University" class="logo" />
+      </div>
+      <div class="header-center">
+        <h1>Professional skills for data science (C7091)</h1>
+        <p class="tagline">This module is part of the <a href="https://www.harper-adams.ac.uk/courses/postgraduate/201247/data-science-for-artificial-intelligence" target="_blank" rel="noopener">Data Science for Artificial Intelligence Route</a> at Harper Adams University.</p>
+      </div>
+      <div class="header-right">
+        <img src="thumbnails/C7091_bg.png" alt="AgriDat" class="logo" />
+      </div>
+    </header>
+    <nav class="controls" aria-label="Content filters">
+      <input id="q" class="input" type="search" placeholder="Search title, topic, or session…" aria-label="Search" />
+      <select id="session" class="select" aria-label="Filter by session">
+        <option value="">All sessions</option>
+      </select>
+      <select id="topic" class="select" aria-label="Filter by topic">
+        <option value="">All topics</option>
+      </select>
+    </nav>
+
+    <div id="cards" class="grid" role="list"></div>
+    <div id="empty" class="empty" hidden>No decks match your filters.</div>
+
+    <section class="assessment-box" aria-labelledby="assessment-title">
+      <h2 id="assessment-title">Assessment Center</h2>
+      <div class="grid">
+        <a class="card" href="problemset.html">
+          <h3>Problem Set</h3>
+        </a>
+        <a class="card" href="miniproject.html">
+          <h3>Mini Project</h3>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="reading-title">
+      <h2 id="reading-title">Recommended reading</h2>
+      <ul>
+        <li>Skoulikari, A. (2023). Learning Git: A Hands‑On and Visual Guide to the Basics of Git. O’Reilly Media.</li>
+        <li>Jones, D. (2011). Learn Windows PowerShell in a Month of Lunches. Manning Publications.</li>
+        <li>Hart, C. (2025). Doing a Literature Review: Releasing the Research Imagination (3rd ed.). SAGE Publications Ltd.</li>
+
+      </ul>
+    </section>
+        <p class="footer"><code>Copyright 2025 Harper Adams University</code></p>
+
+  </div>
+
+  <script>
+    // --- slide decks live under /slides ---
+    // title: what users see; file: href under /slides; week: number or string; topics: tags for filtering
+    const slides = [
+      // --- Session 1 ---
+      { title: "Setup", file: "https://rstatsbootcamp.com/01-setup", session: 1 },
+      { title: "Syntax", file: "https://rstatsbootcamp.com/02-r-lang", session: 1 },
+      { title: "Functions", file: "https://rstatsbootcamp.com/03-functions", session: 1 },
+
+      // --- Session 2 ---
+      { title: "Data Objects", file: "https://rstatsbootcamp.com/04-data", session: 2 },
+      { title: "Dataframes", file: "https://rstatsbootcamp.com/05-data-frames", session: 2 },
+      { title: "Subsetting", file: "https://rstatsbootcamp.com/06-data-manipulation", session: 2 },
+
+      // --- Session 3 ---
+      { title: "EDA", file: "https://rstatsbootcamp.com/07-question-explore", session: 3 },
+      { title: "Distributions", file: "https://rstatsbootcamp.com/08-sampling-dist", session: 3 },
+      { title: "Correlation", file: "https://rstatsbootcamp.com/09-correlation", session: 3 },
+      { title: "Regression", file: "https://rstatsbootcamp.com/10-regression", session: 3 },
+      { title: "T-Test", file: "https://rstatsbootcamp.com/11-t-test", session: 3 },
+      { title: "ANOVA", file: "https://rstatsbootcamp.com/12-1-way-anova", session: 3 },
+
+      // --- Session 4 ---
+      { title: "RMarkdown", file: "https://rstatsbootcamp.com/14-rmarkdown", session: 4 },
+      { title: "GitHub flavoured Markdown", file: "https://josephmhango.github.io/professional-study-skills/slides/markdown.html", session: 4 },
+
+      // --- Session 5 ---
+      { title: "Github", file: "https://rstatsbootcamp.com/15-github-basics", session: 5 },
+      { title: "Collaboration", file: "https://rstatsbootcamp.com/16-collaborative-workflows", session: 5 },
+
+      // --- Session 6 ---
+      { title: "Science communication", file: "https://josephmhango.github.io/professional-study-skills/slides/Experimentation_planning.html", session: 6 }
+    ];
+
+    const sessionTitles = [
+      "R language - syntax",
+      "Data wrangling",
+      "Statistics in R",
+      "Markdown",
+      "GitHub based collaboration",
+      "Science communication"
+    ];
+
+    const sessionImages = {
+      1: "thumbnails/r.png",
+      2: "thumbnails/eda.png",
+      3: "thumbnails/analysis.png",
+      4: "thumbnails/md.jpg",
+      5: "thumbnails/github.png",
+      6: "thumbnails/word.png"
+    };
+
+    // --- Utility helpers ---
+    const unique = (arr) => [...new Set(arr)];
+    const toHref = (f) => /^https?:\/\//i.test(f) ? f : `slides/${encodeURIComponent(f)}`;
+
+    function groupBySession(slidesArr){
+      const map = new Map();
+      for(const s of slidesArr){
+        const key = String(s.session ?? '');
+        if(!map.has(key)) map.set(key, []);
+        map.get(key).push(s);
+      }
+      const groups = Array.from(map.entries()).map(([session, items])=>{
+        const sorted = items.slice().sort((a,b)=>a.title.localeCompare(b.title, undefined, {numeric:true,sensitivity:'base'}));
+        const topics = unique(sorted.flatMap(s=>s.topics||[])).sort((a,b)=>a.localeCompare(b));
+        const first = sorted[0];
+        const lead = sorted.map(s => (s.topics||[]).find(t => /^lead/i.test(t))).find(Boolean) || '';
+        const title = sessionTitles[(Number(session)||0)-1] || `Session ${session}`;
+        const image = sessionImages[Number(session)] || first?.image;
+        return { session, title, slides: sorted, topics, image, defaultFile: first?.file, lead };
+      });
+      return groups.sort((a,b)=>Number(a.session)-Number(b.session));
+    }
+
+    function populateFilters() {
+      const weekSel = document.getElementById('session');
+      const topicSel = document.getElementById('topic');
+      const weeks = unique(slides.map(s => String(s.session))).sort((a,b)=>Number(a)-Number(b));
+      for (const w of weeks) {
+        const opt = document.createElement('option');
+        opt.value = w; opt.textContent = `Session ${w}`;
+        weekSel.appendChild(opt);
+      }
+      const allTopics = unique(slides.flatMap(s => (s.topics||[]))).sort((a,b)=>a.localeCompare(b));
+      for (const t of allTopics) {
+        const opt = document.createElement('option');
+        opt.value = t; opt.textContent = t;
+        topicSel.appendChild(opt);
+      }
+    }
+
+    function groupCardTemplate(g){
+      const defHref = g.defaultFile ? toHref(g.defaultFile) : '#';
+      const thumb = g.image ? `<img class="thumb" src="${g.image}" alt="Session ${g.session} content" />` : `<div class="thumb" aria-hidden="true"></div>`;
+      const list = g.slides.map(s=>{
+        const href = toHref(s.file);
+        return `<li><a class="slide-link" href="${href}">${s.title}</a></li>`;
+      }).join('');
+      const count = g.slides.length;
+      const lead = g.lead ? `<span class="lead-pill">${g.lead}</span>` : '';
+      return `
+        <div class="card" role="link" tabindex="0" data-default-href="${defHref}">
+          ${thumb}
+          <h3><a class="card-title" href="${defHref}">Session ${g.session} — ${g.title}</a></h3>
+          <div class="meta">
+            <span>${count} ${count===1?'content item':'content items'}</span> ${lead}
+          </div>
+          <ul class="slide-list">${list}</ul>
+        </div>
+      `;
+    }
+
+    function bindCardNavigation(){
+      document.querySelectorAll('.card').forEach(card=>{
+        const href = card.getAttribute('data-default-href');
+        card.addEventListener('click',(e)=>{
+          if(e.target.closest('a')) return; // let inner links work
+          if(href && href !== '#') window.location.href = href;
+        });
+        card.addEventListener('keydown',(e)=>{
+          if((e.key==='Enter' || e.key===' ') && href && href !== '#'){
+            e.preventDefault();
+            window.location.href = href;
+          }
+        });
+      });
+    }
+
+    function render(){
+      const q = document.getElementById('q').value.toLowerCase().trim();
+      const week = document.getElementById('session').value;
+      const topic = document.getElementById('topic').value;
+      const groups = groupBySession(slides).filter(g=>{
+        const inWeek = !week || String(g.session)===week;
+        const inTopic = !topic || g.slides.some(s => (s.topics||[]).includes(topic));
+        const hay = [g.session, ...g.slides.map(s=>s.title), ...g.slides.flatMap(s=>s.topics||[])].join(' ').toLowerCase();
+        const inSearch = !q || hay.includes(q);
+        return inWeek && inTopic && inSearch;
+      });
+      document.getElementById('cards').innerHTML = groups.map(groupCardTemplate).join('');
+      document.getElementById('empty').hidden = groups.length>0;
+      bindCardNavigation();
+    }
+
+    populateFilters();
+    render();
+
+    document.getElementById('q').addEventListener('input', render);
+    document.getElementById('session').addEventListener('change', render);
+    document.getElementById('topic').addEventListener('change', render);
+  </script>
+</body>
+</html>

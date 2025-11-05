@@ -1,0 +1,216 @@
+---
+title: " R Problem Set"
+author: "Joseph Mhango"
+format:
+  html:
+    toc: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# Instructions
+
+* Use base R unless the question explicitly allows/tells you to use a package.
+* Comment your code to show understanding.
+
+---
+
+## 1. Fixing a mismatched merge and plot
+
+You are given two objects that are meant to be merged and then plotted, but the join key is misspelled and the plot is using the wrong column.
+
+```r
+df_cars <- mtcars
+df_labels <- data.frame(
+  carname = rownames(mtcars),
+  cyl_group = ifelse(mtcars$cyl >= 6, "high_cyl", "low_cyl"),
+  stringsAsFactors = FALSE
+)
+
+# MISTAKE: the key is wrong here ("car" instead of "carname")
+merged <- merge(df_cars, df_labels, by.x = "row.names", by.y = "car")
+
+plot(merged$hp, merged$mpg,
+     col = merged$cyl_groups,   # MISTAKE: wrong column name
+     pch = 19,
+     xlab = "Horsepower",
+     ylab = "Miles per gallon")
+legend("topright", legend = unique(merged$cyl_groups), pch = 19,
+       col = unique(merged$cyl_groups))
+```
+
+**Tasks:**
+
+1. Correct the `merge()` so that it actually merges on the car names.
+2. Correct the plot so that it colours points by the two-level factor created in `df_labels`.
+3. Make sure the legend shows exactly two items with readable labels.
+4. In 3–4 sentences, explain how `by.x` and `by.y` work in `merge()`.
+
+---
+
+## 2. Wide-to-long and grouped summaries
+
+You are given a wide data frame of three measurements:
+
+```r
+set.seed(42)
+df_wide <- data.frame(
+  id = 1:5,
+  meas_2020 = rnorm(5, 10, 1),
+  meas_2021 = rnorm(5, 11, 1),
+  meas_2022 = rnorm(5, 12, 1)
+)
+```
+
+**Tasks:**
+
+1. Using **base R only** (no `tidyr::pivot_longer()`), reshape this into a long form with columns: `id`, `year`, `value`.
+2. Compute the mean `value` per `year` in base R (e.g. `tapply`, `aggregate`).
+3. In 2–3 sentences, explain why long format is often easier to plot/analyse.
+
+---
+
+## 3. Controlled randomness and NA handling
+
+```r
+set.seed(123)
+x <- rnorm(20, mean = 5, sd = 2)
+x[sample(1:20, 4)] <- NA
+```
+
+**Tasks:**
+
+1. Explain what `set.seed(123)` guarantees.
+2. Write code to replace the `NA`s in `x` with the **median** of the non-missing values (base R only).
+3. Show that after replacement `mean(x)` no longer returns `NA`.
+4. In 2–3 sentences, discuss one *downside* of median imputation.
+
+---
+
+## 4. Writing a small, flexible summary function
+
+Write an R function called `my_summary()` that:
+
+* takes a data frame and a **character vector of column names**,
+* checks that **all** specified columns are numeric,
+* returns a data frame with rows = variables and columns = `n`, `mean`, `sd`.
+
+Then demonstrate it on `mtcars` for columns `c("mpg", "hp", "wt")`.
+
+Explain briefly why using `[[` inside the function is safer than `$` for programmatic column selection.
+
+---
+
+## 5. Regular expressions for variable name cleaning
+
+You are given a vector of messy variable names:
+
+```r
+vars <- c("  temp.C ", "RH(%)", "soil-moisture", "2nd_reading", "sensor.ID")
+```
+
+**Tasks:**
+
+1. Using **only base R string tools** (`gsub`, `trimws`, etc.), clean these so that:
+
+   * spaces are trimmed,
+   * everything is lower case,
+   * punctuation `(`, `)`, `%`, `.` is replaced with `_`,
+   * multiple `_` are collapsed to a single `_`,
+   * names do **not** start with a digit (prefix with `"x_"` if they do).
+2. Return a cleaned character vector called `vars_clean`.
+3. In 3–4 sentences, justify your regex choices.
+
+---
+
+## 6. Factor relevel + model interpretation
+
+Using the built-in `iris` dataset:
+
+1. Relevel `Species` so that `"virginica"` is the reference level.
+2. Fit a linear model `Sepal.Length ~ Species`.
+3. Show the coefficient table.
+4. Explain, in 3–4 sentences, how changing the reference level changed the interpretation of the model output, and what the sign of the estimates means now.
+
+(No packages needed.)
+
+---
+
+## 7. Operating on a list of data frames
+
+Create a list of data frames like this:
+
+```r
+df1 <- mtcars[1:10, c("mpg", "hp")]
+df2 <- mtcars[11:20, c("mpg", "hp")]
+df3 <- mtcars[21:32, c("mpg", "hp")]
+dfs <- list(df1, df2, df3)
+```
+
+**Tasks:**
+
+1. Using `lapply`, compute the mean of `mpg` for each data frame.
+2. Combine the results into a single numeric vector.
+3. Now write **one** line of R code that returns the **overall** mean of `mpg` across **all rows of all list elements** (i.e. not the mean of means, but the mean of the combined data).
+4. Explain in 2–3 sentences what `do.call(rbind, ...)` does and why it is useful here.
+
+---
+
+## 8. Matrix vs data frame behaviour
+
+```r
+m <- matrix(1:12, nrow = 3, byrow = TRUE)
+colnames(m) <- c("A", "B", "C", "D")
+```
+
+**Tasks:**
+
+1. Convert this matrix to a data frame and add a fifth column which is a factor with levels `"low"`, `"high"`.
+2. Show (with code) that arithmetic on the matrix and arithmetic on the converted data frame behave differently if non-numeric columns are present.
+3. In 3–4 sentences, explain why matrices must be homogeneous and data frames can be heterogeneous, and what that implies for statistical modelling.
+
+---
+
+## 9. Power analysis with a different function
+
+Instead of `pwr.t.test()`, use `pwr.anova.test()` from the `{pwr}` package.
+
+**Tasks:**
+
+1. Load `{pwr}` (assume installed).
+2. Use `?pwr.anova.test` to determine which arguments control the number of groups and the effect size.
+3. Write code to compute the required sample size for a one-way ANOVA with:
+
+   * 4 groups
+   * effect size f = 0.25
+   * power = 0.8
+   * sig.level = 0.05
+4. In 2–3 sentences, explain how `f` in ANOVA differs conceptually from Cohen’s `d` in a t-test.
+
+```r
+library(pwr)
+# your pwr.anova.test(...) here
+```
+
+---
+
+## 10. Authoring and indexing a deeper unnamed list
+
+Construct a **three-level unnamed list** like this:
+
+* level 1: a list of length 2
+* level 2: each element is itself a list
+* level 3: at least one of those contains a numeric vector of length ≥ 3
+
+**Tasks:**
+
+1. Write the R code to build such a list with no names anywhere.
+2. Using **only** numeric indexing (`[[ ]]`), extract the **third** element of the deepest numeric vector.
+3. Store it as a scalar.
+4. In 3–4 sentences, explain the difference between `[` and `[[` for lists and why only one of them gives you the actual element.
+
+```r
+# your list construction and extraction here
+```
